@@ -31,7 +31,7 @@ namespace Loteria.Server.Controllers
             {
                 return BadRequest("No data add");
             }
-           // _code.DeleteCode(userDTO.Code);
+            _code.DeleteCode(userDTO.Code);
             _user.AddUser(userDTO);
             return Ok(userDTO);
 

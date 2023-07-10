@@ -19,11 +19,10 @@ namespace Loteria.Server.Service
 
         public bool DeleteCode(string code)
         {
-            var find = _connect.codes.Where(f => f.code == code);
+            var find = _connect.codes.Where(f => f.code == code).First();
             if (find != null) 
             {
-              //  _connect.codes.Attach(find);
-              //  _connect.codes.Remove(find);
+                _connect.codes.Remove(find);
                 _connect.SaveChanges();
                 return true;
             }

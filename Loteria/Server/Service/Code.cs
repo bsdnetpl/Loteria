@@ -17,6 +17,32 @@ namespace Loteria.Server.Service
             _connect = connect;
         }
 
+        public bool DeleteCode(string code)
+        {
+            var find = _connect.codes.Where(f => f.code == code);
+            if (find != null) 
+            {
+              //  _connect.codes.Attach(find);
+              //  _connect.codes.Remove(find);
+                _connect.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool FindCode(string code)
+        {
+            var find = _connect.codes.Where(f => f.code == code).First();
+            if (find != null) 
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void GetCode(int longest, int HowMany)
         {
             for (int ik = 0; ik < HowMany; ik++)

@@ -12,6 +12,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ConnectMssql>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("CS")));
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICode, Code>();
+builder.Services.AddScoped<IUser, User>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
